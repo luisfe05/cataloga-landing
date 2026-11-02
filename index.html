@@ -177,7 +177,10 @@ section.sheet:nth-of-type(1) { z-index: 4; } section.sheet:nth-of-type(2) { z-in
 
 /* Hero. */
 .lede { font-size: var(--fs-body); line-height: 1.6; max-width: 46ch; }
-.actions { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.actions { display: flex; flex-wrap: wrap; gap: var(--s2); align-items: flex-start; }
+/* Download button with a note under it, outside the button. */
+.dl { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; }
+.soon { font-family: var(--font-label); font-weight: 600; font-size: var(--fs-small); color: var(--on-dark-soft); white-space: nowrap; }
 .shot { margin: 0; }
 .shot img { display: block; width: 100%; height: auto; border-radius: var(--r-md); }
 .shot figcaption { font-family: var(--font-label); font-size: var(--fs-small); color: var(--midnight); padding-top: var(--s1); }
@@ -330,7 +333,7 @@ html, body { overflow-x: clip; }
         <a href="#features">Features</a>
         <a href="#why">Why Cataloga</a>
         <a href="#about">About</a>
-        <span class="btn btn-light" aria-disabled="true">Download for Mac · Coming soon</span>
+        <span class="dl"><span class="btn btn-light" aria-disabled="true">Available for Mac</span><span class="soon">Coming soon</span></span>
       </nav>
       <details class="menu">
         <summary class="btn btn-light">Menu</summary>
@@ -339,7 +342,7 @@ html, body { overflow-x: clip; }
           <a href="#features">Features</a>
           <a href="#why">Why Cataloga</a>
           <a href="#about">About</a>
-          <span class="btn btn-light" aria-disabled="true">Download for Mac · Coming soon</span>
+          <span class="dl"><span class="btn btn-light" aria-disabled="true">Available for Mac</span><span class="soon">Coming soon</span></span>
         </nav>
       </details>
     </header>
@@ -452,7 +455,7 @@ html, body { overflow-x: clip; }
       <h1>An AI archivist for your personal drive.</h1>
       <p class="lede">Cataloga reads every file in a folder, names it, dates it, summarizes it and keeps it in order.</p>
       <div class="actions">
-        <span class="btn btn-main" aria-disabled="true">Download for Mac · Coming soon</span>
+        <span class="dl"><span class="btn btn-main" aria-disabled="true">Available for Mac</span><span class="soon">Coming soon</span></span>
         <a class="btn btn-light" href="#see">See it work</a>
       </div>
     </div>
