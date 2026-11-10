@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#08051C">
+<title>Cataloga: Terms and Conditions</title>
+<meta name="description" content="Terms and Conditions of Cataloga, the AI archivist for your personal drive.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/Archivo.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
+@font-face { font-family: "Archivo Narrow"; src: url("assets/fonts/ArchivoNarrow.woff2") format("woff2"); font-weight: 400 700; font-display: swap; }
+
+/* Same frame as index.html: the dark gradient holds one Paper sheet with the legal text. */
+:root {
+  --deep: #08051C; --midnight: #221854; --nebula: #342476; --dusk: #46417B; --violet: #493BB2; --paper: #EEF5FA;
+  --on-dark-soft: rgba(238, 245, 250, 0.82);
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-label: "Archivo Narrow", "Arial Narrow", Arial, sans-serif;
+  --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px; --s5: 40px; --s6: 48px; --s8: 64px;
+  --frame-pad: clamp(16px, 3vw, 48px);
+  --gap: clamp(32px, 5vw, 72px);
+  --sheet-px: clamp(24px, 5vw, 80px);
+  --sheet-py: clamp(40px, 6vw, 96px);
+  --logo-h: clamp(33px, 2.5vw, 40px);
+  --logo-w: calc(var(--logo-h) * 4.978);
+  --tab-py: calc(var(--logo-w) * 0.1);
+  --tab-h: calc(var(--logo-h) + 2 * var(--tab-py));
+  --r-sheet: 28px; --r-md: 16px;
+  --fs-small: 14px;
+  --fs-body: clamp(16px, 1.18vw, 17px);
+  --fs-ui: var(--fs-body);
+  --fs-h3: clamp(19px, 1.46vw, 21px);
+  --fs-h2: clamp(26px, 3.4vw, 38px);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--deep); color: var(--deep); font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.55; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; border-radius: 8px; }
+.frame-top :focus-visible, .menu-panel :focus-visible, .footer :focus-visible { outline-color: var(--paper); }
+h1, h2 { margin: 0; color: var(--deep); }
+p { margin: 0; }
+img { max-width: 100%; }
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background-image: linear-gradient(160deg, var(--deep) 0%, var(--midnight) 100%); }
+.folder { position: relative; padding: var(--frame-pad); display: grid; gap: var(--gap); min-height: 100vh; }
+
+/* Frame bar, as on the home page. */
+.frame-top { position: relative; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: var(--s3); min-height: 48px; }
+.frame-logo img { display: block; width: clamp(160px, 14vw, 200px); height: auto; }
+.nav { display: flex; align-items: center; gap: var(--s3); }
+.nav > a:not(.btn) { color: var(--paper); text-decoration: none; font-family: var(--font-label); font-weight: 600; font-size: var(--fs-ui); white-space: nowrap; position: relative; }
+.nav > a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; background: var(--paper); transform: scaleX(0); transform-origin: left; transition: transform 200ms var(--ease); }
+.nav > a:not(.btn):hover::after, .nav > a:not(.btn):focus-visible::after { transform: scaleX(1); }
+.menu { display: none; position: relative; }
+.menu summary { list-style: none; cursor: pointer; }
+.menu summary::-webkit-details-marker { display: none; }
+.menu-panel { position: absolute; right: 0; top: calc(100% + var(--s1)); z-index: 30; min-width: 240px; display: grid; gap: var(--s1); padding: var(--s2); border-radius: var(--r-md); background: var(--deep); }
+.menu-panel a:not(.btn) { color: var(--paper); text-decoration: none; font-weight: 600; padding: var(--s1) var(--s2); border-radius: 8px; white-space: nowrap; }
+.menu-panel a:not(.btn):hover { background: var(--nebula); }
+@media (max-width: 1023px) { .nav { display: none; } .menu { display: block; } }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--s1); min-height: 48px; padding: 0 clamp(var(--s2), 1.6vw, var(--s3)); border-radius: 999px; border: 0; text-decoration: none; white-space: nowrap; font-family: var(--font-body); font-weight: 600; font-size: var(--fs-ui); line-height: 1; cursor: pointer; }
+.btn-light { background: var(--paper); color: var(--deep); }
+.btn-light:hover { background: var(--deep); color: var(--paper); box-shadow: inset 0 0 0 2px var(--paper); }
+
+/* One sheet: a rounded Paper rectangle with its tab. */
+.sheet { position: relative; padding: calc(var(--tab-h) + var(--sheet-py)) var(--sheet-px) var(--sheet-py); }
+.sheet::before { content: ""; position: absolute; inset: var(--tab-h) 0 0 0; border-radius: var(--r-sheet); background: var(--paper); }
+.sheet > * { position: relative; }
+.sheet-tab { position: absolute; top: 0; left: 0; height: var(--tab-h); display: flex; align-items: center; padding: 0 var(--s4); border-radius: 18px 18px 0 0; background: var(--paper); font-family: var(--font-label); font-weight: 600; font-size: var(--fs-ui); line-height: 1; color: var(--deep); white-space: nowrap; }
+@media (max-width: 759px) { .sheet-tab { padding: 0 var(--s3); } }
+
+/* The legal column: about 68 characters wide, headings in the label face. */
+.legal { max-width: 68ch; margin-inline: auto; display: grid; gap: var(--s3); }
+.legal h1 { font-family: var(--font-label); font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05; font-size: var(--fs-h2); }
+.legal .date { font-family: var(--font-label); font-weight: 600; color: var(--midnight); }
+.legal section { display: grid; gap: var(--s2); padding-top: var(--s2); }
+.legal h2 { font-family: var(--font-label); font-weight: 700; font-size: var(--fs-h3); color: var(--midnight); }
+.legal ul { margin: 0; padding-left: 1.2em; display: grid; gap: var(--s1); }
+.legal .other { padding-top: var(--s3); border-top: 1px solid var(--dusk); font-family: var(--font-label); font-weight: 600; }
+.legal .other a { color: var(--violet); }
+
+.footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--s2); padding: 0 var(--s1); color: var(--on-dark-soft); font-size: var(--fs-small); }
+.footer img { height: 40px; width: auto; display: block; }
+.footer a { color: var(--paper); }
+.footer-links { display: flex; gap: var(--s2); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="folder">
+  <header class="frame-top">
+    <a class="frame-logo" href="index.html" aria-label="Cataloga home"><img src="assets/logos/logo-horizontal-paper.svg" alt="Cataloga, Archive Classifier" width="200" height="40"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#why">Why Cataloga</a>
+      <a href="index.html#about">About</a>
+      <a class="btn btn-light" href="index.html">Home</a>
+    </nav>
+    <details class="menu">
+      <summary class="btn btn-light">Menu</summary>
+      <nav class="menu-panel" aria-label="Menu">
+        <a href="index.html">Home</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#why">Why Cataloga</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </details>
+  </header>
+
+  <section class="sheet" aria-labelledby="title">
+    <span class="sheet-tab">Terms and Conditions</span>
+    <article class="legal">
+      <h1 id="title">Terms and Conditions</h1>
+      <p class="date">Effective date: November 9, 2026</p>
+<p>These Terms and Conditions (&quot;Terms&quot;) apply to the Cataloga desktop app and the Cataloga website (together, &quot;Cataloga&quot;). Cataloga is offered by Luis González (&quot;I&quot;, &quot;me&quot;). By downloading, installing or using Cataloga, you agree to these Terms. If you do not agree, do not use Cataloga.</p>
+<section id="s1">
+<h2>1. What Cataloga does</h2>
+<p>Cataloga reads the files in a folder you choose, describes them with the help of an AI provider, and proposes names and folders for them. Cataloga never moves, renames or deletes a file until you approve a plan, and it never changes the content of your original files.</p>
+</section>
+<section id="s2">
+<h2>2. Your files and your responsibility</h2>
+<p>You keep all rights to your files. You are responsible for having the right to process the files you add to Cataloga, including files that contain other people&#x27;s personal information or material protected by copyright. Keep backups of important files. Cataloga includes an undo option for approved plans, but no software can guarantee that data is never lost.</p>
+</section>
+<section id="s3">
+<h2>3. AI results</h2>
+<p>Cataloga uses AI to read and describe files. AI can make mistakes: summaries, dates, sources, names and folder proposals may be wrong or incomplete. Review the results before you approve a plan or rely on them. Cataloga is a tool to help you organize, not a source of professional, legal or archival advice.</p>
+</section>
+<section id="s4">
+<h2>4. AI providers and API keys</h2>
+<p>To describe your files, Cataloga sends file content to the AI provider set in Settings. Your use of each provider is also subject to that provider&#x27;s own terms and policies. If you add your own API key, you are responsible for keeping it safe and for any costs or limits on your provider account.</p>
+</section>
+<section id="s5">
+<h2>5. Accounts and recovery key</h2>
+<p>Accounts are created and stored only on your computer. You are responsible for your password and for activity under your account on that computer. You can delete your account at any time in Settings › Account, after typing your password. Deleting it removes the account, its recovery key, its settings and its saved API keys from your computer, and never touches your project folders or their files.</p>
+<p>When you create an account, Cataloga gives you a recovery key. It is the only way to reset your password if you forget it. Keep it somewhere safe, outside your project folders. Anyone who has your recovery key can reset your password, so treat it like a password. If you lose both your password and your recovery key, your account cannot be recovered, and I cannot recover it for you, because I have no access to your computer or your account.</p>
+</section>
+<section id="s6">
+<h2>6. Acceptable use</h2>
+<p>Cataloga and its assistant, Ask Cataloga, are made only to describe, search and organize the files in your projects. The assistant answers only about those files and does not search the internet. You may not use Cataloga to:</p>
+<ul>
+<li>break the law or plan or help with a crime;</li>
+<li>create, request or distribute pornographic or sexually explicit content, or any content that sexualizes minors;</li>
+<li>hack, attack or get around the security of any computer, account, file, AI provider or server, or to create malware;</li>
+<li>try to make the assistant ignore its rules, reveal its instructions or settings, or reach anything outside your project;</li>
+<li>process files you have no right to process.</li>
+</ul>
+<p>Cataloga may refuse, block or pause requests that break these rules.</p>
+</section>
+<section id="s7">
+<h2>7. Open source</h2>
+<p>Parts of Cataloga&#x27;s source code may be published under the MIT License. If they are, that license governs the use of that code. These Terms govern the use of the app and the website.</p>
+</section>
+<section id="s8">
+<h2>8. Security</h2>
+<p>Cataloga is designed to keep your information on your computer, but no software, computer or network is completely secure. I cannot guarantee that Cataloga, your computer, the AI providers or any server will be free of security problems. You use Cataloga at your own risk. You are responsible for the security of your computer, your accounts, your passwords and your API keys, and for deciding which files you add to Cataloga.</p>
+</section>
+<section id="s9">
+<h2>9. Third-party services</h2>
+<p>AI providers, servers and other services that Cataloga connects to are operated by third parties, not by me. I do not control them and I am not responsible for how they handle, store or protect your content, including any breach, leak, outage or unauthorized access on their side.</p>
+</section>
+<section id="s10">
+<h2>10. No warranty</h2>
+<p>Cataloga is provided &quot;as is&quot; and &quot;as available&quot;, without warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, non-infringement, security, accuracy and uninterrupted or error-free operation.</p>
+</section>
+<section id="s11">
+<h2>11. Limitation of liability</h2>
+<p>To the maximum extent allowed by law, I am not liable for any damages of any kind that result from using or being unable to use Cataloga, including:</p>
+<ul>
+<li>loss, corruption, exposure or theft of data or files;</li>
+<li>hacks, leaks, data breaches, viruses or any unauthorized access to your computer, your files, your accounts or your API keys, whether through Cataloga, your computer or a third-party service;</li>
+<li>mistakes in AI results;</li>
+<li>costs or charges on your AI provider accounts;</li>
+<li>indirect, incidental, special, consequential or punitive damages, or loss of profits, business or reputation.</li>
+</ul>
+<p>To the maximum extent allowed by law, my total liability for any claim related to Cataloga is limited to the amount you paid me for Cataloga in the 12 months before the claim. If Cataloga was free for you, that amount is US$0.</p>
+</section>
+<section id="s12">
+<h2>12. Indemnity</h2>
+<p>To the extent allowed by law, you agree to defend and hold me harmless from any claims, damages, losses and costs (including reasonable legal fees) that arise from your use of Cataloga, the files you process with it, or your breaking these Terms or the law.</p>
+</section>
+<section id="s13">
+<h2>13. Where the law does not allow these limits</h2>
+<p>Some laws do not allow certain warranties to be excluded or liability to be limited. In those places, the exclusions and limits above apply to the fullest extent the law allows.</p>
+</section>
+<section id="s14">
+<h2>14. Changes</h2>
+<p>I may update these Terms. When I do, I will change the effective date above. If you keep using Cataloga after an update, you accept the new Terms.</p>
+</section>
+<section id="s15">
+<h2>15. Governing law</h2>
+<p>These Terms are governed by applicable United States federal law and the laws of the Commonwealth of Puerto Rico, without regard to conflict-of-law rules.</p>
+</section>
+<section id="s16">
+<h2>16. Contact</h2>
+<p>Questions about these Terms: <a href="mailto:lgonzalez05@gmail.com">lgonzalez05@gmail.com</a></p>
+</section>
+      <p class="other">See also: <a href="privacy.html">Privacy Policy</a></p>
+    </article>
+  </section>
+
+  <footer class="footer">
+    <img src="assets/logos/logomark-6.svg" alt="Cataloga" width="56" height="40">
+    <p>Holberton School Portfolio Project, 2026.</p>
+    <p class="footer-links"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></p>
+  </footer>
+</div>
+</body>
+</html>

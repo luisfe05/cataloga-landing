@@ -271,6 +271,7 @@ html, body { overflow-x: clip; }
 #resume:target { display: block; }
 .footer a { color: var(--paper); }
 .footer img { height: 40px; }
+.footer-links { display: flex; gap: var(--s2); }
 @media (min-width: 900px) {
   .feature { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s8); }
   .feature:nth-child(even) .feature-text { order: 2; }
@@ -554,6 +555,7 @@ html, body { overflow-x: clip; }
   <footer class="footer">
     <img src="assets/logos/logomark-6.svg" alt="Cataloga" width="56" height="40">
     <p>Holberton School Portfolio Project, 2026.</p>
+    <p class="footer-links"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></p>
   </footer>
 </div>
 <script src="assets/js/gsap.min.js"></script>

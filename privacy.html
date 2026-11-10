@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#08051C">
+<title>Cataloga: Privacy Policy</title>
+<meta name="description" content="Privacy Policy of Cataloga, the AI archivist for your personal drive.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/Archivo.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
+@font-face { font-family: "Archivo Narrow"; src: url("assets/fonts/ArchivoNarrow.woff2") format("woff2"); font-weight: 400 700; font-display: swap; }
+
+/* Same frame as index.html: the dark gradient holds one Paper sheet with the legal text. */
+:root {
+  --deep: #08051C; --midnight: #221854; --nebula: #342476; --dusk: #46417B; --violet: #493BB2; --paper: #EEF5FA;
+  --on-dark-soft: rgba(238, 245, 250, 0.82);
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-label: "Archivo Narrow", "Arial Narrow", Arial, sans-serif;
+  --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px; --s5: 40px; --s6: 48px; --s8: 64px;
+  --frame-pad: clamp(16px, 3vw, 48px);
+  --gap: clamp(32px, 5vw, 72px);
+  --sheet-px: clamp(24px, 5vw, 80px);
+  --sheet-py: clamp(40px, 6vw, 96px);
+  --logo-h: clamp(33px, 2.5vw, 40px);
+  --logo-w: calc(var(--logo-h) * 4.978);
+  --tab-py: calc(var(--logo-w) * 0.1);
+  --tab-h: calc(var(--logo-h) + 2 * var(--tab-py));
+  --r-sheet: 28px; --r-md: 16px;
+  --fs-small: 14px;
+  --fs-body: clamp(16px, 1.18vw, 17px);
+  --fs-ui: var(--fs-body);
+  --fs-h3: clamp(19px, 1.46vw, 21px);
+  --fs-h2: clamp(26px, 3.4vw, 38px);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--deep); color: var(--deep); font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.55; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; border-radius: 8px; }
+.frame-top :focus-visible, .menu-panel :focus-visible, .footer :focus-visible { outline-color: var(--paper); }
+h1, h2 { margin: 0; color: var(--deep); }
+p { margin: 0; }
+img { max-width: 100%; }
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background-image: linear-gradient(160deg, var(--deep) 0%, var(--midnight) 100%); }
+.folder { position: relative; padding: var(--frame-pad); display: grid; gap: var(--gap); min-height: 100vh; }
+
+/* Frame bar, as on the home page. */
+.frame-top { position: relative; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: var(--s3); min-height: 48px; }
+.frame-logo img { display: block; width: clamp(160px, 14vw, 200px); height: auto; }
+.nav { display: flex; align-items: center; gap: var(--s3); }
+.nav > a:not(.btn) { color: var(--paper); text-decoration: none; font-family: var(--font-label); font-weight: 600; font-size: var(--fs-ui); white-space: nowrap; position: relative; }
+.nav > a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; background: var(--paper); transform: scaleX(0); transform-origin: left; transition: transform 200ms var(--ease); }
+.nav > a:not(.btn):hover::after, .nav > a:not(.btn):focus-visible::after { transform: scaleX(1); }
+.menu { display: none; position: relative; }
+.menu summary { list-style: none; cursor: pointer; }
+.menu summary::-webkit-details-marker { display: none; }
+.menu-panel { position: absolute; right: 0; top: calc(100% + var(--s1)); z-index: 30; min-width: 240px; display: grid; gap: var(--s1); padding: var(--s2); border-radius: var(--r-md); background: var(--deep); }
+.menu-panel a:not(.btn) { color: var(--paper); text-decoration: none; font-weight: 600; padding: var(--s1) var(--s2); border-radius: 8px; white-space: nowrap; }
+.menu-panel a:not(.btn):hover { background: var(--nebula); }
+@media (max-width: 1023px) { .nav { display: none; } .menu { display: block; } }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--s1); min-height: 48px; padding: 0 clamp(var(--s2), 1.6vw, var(--s3)); border-radius: 999px; border: 0; text-decoration: none; white-space: nowrap; font-family: var(--font-body); font-weight: 600; font-size: var(--fs-ui); line-height: 1; cursor: pointer; }
+.btn-light { background: var(--paper); color: var(--deep); }
+.btn-light:hover { background: var(--deep); color: var(--paper); box-shadow: inset 0 0 0 2px var(--paper); }
+
+/* One sheet: a rounded Paper rectangle with its tab. */
+.sheet { position: relative; padding: calc(var(--tab-h) + var(--sheet-py)) var(--sheet-px) var(--sheet-py); }
+.sheet::before { content: ""; position: absolute; inset: var(--tab-h) 0 0 0; border-radius: var(--r-sheet); background: var(--paper); }
+.sheet > * { position: relative; }
+.sheet-tab { position: absolute; top: 0; left: 0; height: var(--tab-h); display: flex; align-items: center; padding: 0 var(--s4); border-radius: 18px 18px 0 0; background: var(--paper); font-family: var(--font-label); font-weight: 600; font-size: var(--fs-ui); line-height: 1; color: var(--deep); white-space: nowrap; }
+@media (max-width: 759px) { .sheet-tab { padding: 0 var(--s3); } }
+
+/* The legal column: about 68 characters wide, headings in the label face. */
+.legal { max-width: 68ch; margin-inline: auto; display: grid; gap: var(--s3); }
+.legal h1 { font-family: var(--font-label); font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05; font-size: var(--fs-h2); }
+.legal .date { font-family: var(--font-label); font-weight: 600; color: var(--midnight); }
+.legal section { display: grid; gap: var(--s2); padding-top: var(--s2); }
+.legal h2 { font-family: var(--font-label); font-weight: 700; font-size: var(--fs-h3); color: var(--midnight); }
+.legal ul { margin: 0; padding-left: 1.2em; display: grid; gap: var(--s1); }
+.legal .other { padding-top: var(--s3); border-top: 1px solid var(--dusk); font-family: var(--font-label); font-weight: 600; }
+.legal .other a { color: var(--violet); }
+
+.footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--s2); padding: 0 var(--s1); color: var(--on-dark-soft); font-size: var(--fs-small); }
+.footer img { height: 40px; width: auto; display: block; }
+.footer a { color: var(--paper); }
+.footer-links { display: flex; gap: var(--s2); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="folder">
+  <header class="frame-top">
+    <a class="frame-logo" href="index.html" aria-label="Cataloga home"><img src="assets/logos/logo-horizontal-paper.svg" alt="Cataloga, Archive Classifier" width="200" height="40"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#why">Why Cataloga</a>
+      <a href="index.html#about">About</a>
+      <a class="btn btn-light" href="index.html">Home</a>
+    </nav>
+    <details class="menu">
+      <summary class="btn btn-light">Menu</summary>
+      <nav class="menu-panel" aria-label="Menu">
+        <a href="index.html">Home</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#why">Why Cataloga</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </details>
+  </header>
+
+  <section class="sheet" aria-labelledby="title">
+    <span class="sheet-tab">Privacy Policy</span>
+    <article class="legal">
+      <h1 id="title">Privacy Policy</h1>
+      <p class="date">Effective date: November 9, 2026</p>
+<p>This policy explains what information Cataloga handles and where it goes. Cataloga is offered by Luis González (&quot;I&quot;, &quot;me&quot;).</p>
+<section id="s1">
+<h2>1. The short version</h2>
+<p>Cataloga runs on your computer. Your files, your catalog and your account stay on your computer. The only time file content leaves your computer is when Cataloga sends it to the AI provider you use, so the provider can describe the file. I do not receive your files, your catalog or your account information.</p>
+</section>
+<section id="s2">
+<h2>2. What stays on your computer</h2>
+<ul>
+<li>Your files. Cataloga reads them where they are.</li>
+<li>Your catalog: names, summaries, dates, sources, keywords and plans. It is saved in a &quot;.cataloga&quot; folder inside your project folder.</li>
+<li>Your account: username and password. The password is stored as a secure hash, never as plain text.</li>
+<li>Your recovery key: stored as a secure hash, plus a copy in the macOS Keychain so Cataloga can show it to you again after you confirm your password. If you save it as a file, it goes only where you choose.</li>
+<li>The date and version of the Terms you accepted.</li>
+<li>Your API keys, stored in the macOS Keychain.</li>
+<li>Your settings.</li>
+<li>A local log file, in Cataloga&#x27;s own data folder, with errors and, when the assistant blocks a request, the date, the kind of block and the project name. The log never keeps the text of your messages or of your files.</li>
+</ul>
+</section>
+<section id="s3">
+<h2>3. What is sent to AI providers</h2>
+<p>To describe a file, Cataloga sends the AI provider the information it needs, which can include:</p>
+<ul>
+<li>text extracted from the file, and images, audio or video from it;</li>
+<li>the file name, the names of your project&#x27;s folders and of other files in the same folder, and the project description you wrote (&quot;About this project&quot;);</li>
+<li>names and summaries already in your catalog, when Cataloga checks that a new name follows the same pattern as the others;</li>
+<li>the questions you ask the Cataloga assistant, the earlier messages of that conversation, and the parts of your catalog needed to answer them.</li>
+</ul>
+<p>Cataloga does not send your API keys or your password to an AI provider. Files whose names mark them as secrets (such as &quot;.env&quot; files, private keys and certificates) are skipped: they are never read or sent. Before any text goes to a provider, Cataloga also looks inside it for API keys and tokens with a known shape, private key blocks, web addresses with a user and a password, and passwords written as &quot;password: ...&quot; (or &quot;contraseña&quot;, &quot;secret&quot;, &quot;token&quot;, &quot;api_key&quot;), and replaces each one with &quot;[REDACTED]&quot;. The catalog keeps only how many were hidden, never the secret. Cataloga cannot recognize every password written in free text, so do not add files with passwords to Cataloga.</p>
+<p>Providers Cataloga can use:</p>
+<ul>
+<li>Ollama Cloud: the default provider for text and images.</li>
+<li>Another provider you choose in Settings for text and images: Google Gemini, Anthropic Claude, Groq, OpenAI or xAI.</li>
+<li>Google Gemini: the only provider for audio and video, if you add a Gemini key. According to Google&#x27;s terms at the time of writing, with a free Gemini key Google may use the content to improve its models; with a paid key it does not. Check Google&#x27;s current terms.</li>
+<li>A fallback provider that you choose in Settings (optional).</li>
+<li>A Cataloga server that you set in Settings (optional). If you set one, requests go through that server instead of directly to the providers.</li>
+</ul>
+<p>Each provider handles the content under its own privacy policy and terms. Read them before you use Cataloga with sensitive files.</p>
+</section>
+<section id="s4">
+<h2>4. What I do not do</h2>
+<ul>
+<li>I do not sell or share your information.</li>
+<li>I do not use your files or your catalog to train AI models.</li>
+<li>Cataloga does not include analytics, ads, tracking, crash reports or automatic updates.</li>
+<li>Cataloga connects to the internet only to reach the AI provider you use or the Cataloga server you set. Everything else runs on your computer.</li>
+</ul>
+</section>
+<section id="s5">
+<h2>5. The website</h2>
+<p>The Cataloga website is a static page. It does not use cookies or analytics. The site host may keep standard server logs, such as IP addresses.</p>
+</section>
+<section id="s6">
+<h2>6. Your choices</h2>
+<ul>
+<li>Choose which folders Cataloga reads.</li>
+<li>Use &quot;Catalog only&quot; to catalog files without moving or renaming them.</li>
+<li>Delete a project&#x27;s catalog by deleting the &quot;.cataloga&quot; folder inside its project folder.</li>
+<li>Delete your account in Settings › Account, after typing your password. That removes from your computer your account, your password, your recovery key, your settings, the list of projects of that account, and the API keys saved for that account (a key that another account on the same computer also uses stays). Your files and project folders stay exactly where they are, including the &quot;.cataloga&quot; catalog folder of each project; delete those by hand if you want them gone too.</li>
+<li>Your account and settings live in Cataloga&#x27;s own data folder on your computer, and your keys in the macOS Keychain. You can also remove them by hand: delete that folder and the Cataloga items in Keychain Access, or uninstall the app and do the same.</li>
+<li>Do not add files to Cataloga that you do not want sent to an AI provider.</li>
+</ul>
+</section>
+<section id="s7">
+<h2>7. Security</h2>
+<p>Cataloga keeps your information on your computer and uses standard protections, such as hashed passwords and recovery keys, and the macOS Keychain for API keys. No method of storing or sending information is completely secure, and I cannot guarantee its security. Content sent to an AI provider or a server is handled under that provider&#x27;s or server&#x27;s own security practices, which I do not control. See the Terms and Conditions for the limits of my responsibility.</p>
+</section>
+<section id="s8">
+<h2>8. Children</h2>
+<p>Cataloga is not meant for children under 13, and I do not knowingly handle their information.</p>
+</section>
+<section id="s9">
+<h2>9. Changes</h2>
+<p>I may update this policy. When I do, I will change the effective date above.</p>
+</section>
+<section id="s10">
+<h2>10. Contact</h2>
+<p>Questions about privacy: <a href="mailto:lgonzalez05@gmail.com">lgonzalez05@gmail.com</a></p>
+</section>
+      <p class="other">See also: <a href="terms.html">Terms and Conditions</a></p>
+    </article>
+  </section>
+
+  <footer class="footer">
+    <img src="assets/logos/logomark-6.svg" alt="Cataloga" width="56" height="40">
+    <p>Holberton School Portfolio Project, 2026.</p>
+    <p class="footer-links"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></p>
+  </footer>
+</div>
+</body>
+</html>
