@@ -186,27 +186,12 @@ section.sheet:nth-of-type(1) { z-index: 4; } section.sheet:nth-of-type(2) { z-in
 .shot figcaption { font-family: var(--font-label); font-size: var(--fs-small); color: var(--midnight); padding-top: var(--s1); }
 @media (max-width: 399px) { .actions .btn { width: 100%; } }
 
-/* Why Cataloga: a real table on wide screens, one block per row on phones. */
-.why .headline .display { --w: 17.4; --wn: 14.4; --max: var(--fs-h2); }
-.compare { width: 100%; border-collapse: collapse; margin-top: var(--sp-md); }
-.compare th, .compare td { text-align: left; padding: var(--s2) var(--s3); vertical-align: top; }
-.compare th { font-family: var(--font-label); font-size: var(--fs-small); font-weight: 600; color: var(--midnight); }
-.compare tbody tr { border-top: 1px solid var(--dusk); }
-.compare td:first-child, .compare td:last-child { font-weight: 600; }
-.compare td:nth-child(2) { color: var(--midnight); }
-@media (max-width: 639px) {
-  .compare thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-  .compare, .compare tbody, .compare tr, .compare td { display: block; }
-  .compare tbody tr { padding: var(--s2) 0; }
-  .compare td { padding: 0; overflow-wrap: anywhere; }
-  .compare td:first-child { font-size: var(--fs-h3); margin-bottom: var(--s1); }
-  .compare td:not(:first-child)::before { content: attr(data-label) ": "; font-family: var(--font-label); font-weight: 600; color: var(--midnight); }
-}
-
 /* About. */
 .about-grid { display: grid; gap: var(--s5); }
-.about .headline .display { --w: 10.3; --wn: 8.4; --max: var(--fs-h2); }
-.about-text { display: grid; gap: var(--s3); max-width: 62ch; }
+.qr { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s4); }
+.qr a { display: block; flex: none; padding: var(--s2); border-radius: var(--r-md); background: #fff; box-shadow: 0 0 0 1px rgba(34, 24, 84, 0.16); }
+.qr img { display: block; width: 216px; height: 216px; }
+.qr figcaption { font-weight: 600; font-size: var(--fs-h3); line-height: 1.3; color: var(--midnight); max-width: 14ch; }
 .person { border-radius: var(--r-md); background: var(--midnight); color: var(--paper); padding: var(--s4); display: grid; gap: var(--s2); align-content: start; }
 .person .made { font-family: var(--font-label); font-weight: 600; font-size: var(--fs-small); color: var(--on-dark-soft); }
 .person h3 { color: var(--paper); font-size: var(--fs-h3); }
@@ -245,7 +230,7 @@ html, body { overflow-x: clip; }
 .sheet-inner { position: relative; }
 
 .section-head { margin-bottom: var(--sp-lg); }
-.see .headline .display { --w: 7.4; --wn: 6.2; --max: var(--fs-h2); }
+.see .headline .display { --w: 8.6; --wn: 7.2; --max: var(--fs-h2); }
 .features .headline .display { --w: 8.6; --wn: 7.2; --max: var(--fs-h2); }
 .see video, .video-slot { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--r-md); background: var(--deep); }
 .video-slot { display: flex; align-items: center; justify-content: center; color: var(--paper); font-family: var(--font-label); padding: var(--s3); text-align: center; }
@@ -260,8 +245,6 @@ html, body { overflow-x: clip; }
 .feature figure { margin: 0; display: grid; gap: var(--s2); }
 .feature img { display: block; width: 100%; height: auto; border-radius: var(--r-md); box-shadow: 0 0 0 1px rgba(34, 24, 84, 0.16); }
 
-.why .lede { max-width: 60ch; margin-top: var(--s3); }
-.compare th:last-child, .compare td:last-child { color: var(--deep); }
 
 .person h3 { font-weight: 600; }
 .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s1); }
@@ -276,7 +259,7 @@ html, body { overflow-x: clip; }
   .feature { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s8); }
   .feature:nth-child(even) .feature-text { order: 2; }
   .feature:nth-child(even) { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
-  .about-grid { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: var(--s8); align-items: start; }
+  .about-grid { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: var(--s8); align-items: center; }
 }
 @media (max-width: 399px) { .cover .actions .btn { width: 100%; } .btn { white-space: normal; text-align: center; } }
 
@@ -301,7 +284,7 @@ html, body { overflow-x: clip; }
   .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .steps .step:nth-child(2) { margin-top: var(--s12); }
   .steps .step:nth-child(3) { margin-top: var(--s6); }
-  .about-grid { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: var(--s8); align-items: start; }
+  .about-grid { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: var(--s8); align-items: center; }
 }
 @media (min-width: 1200px) {
 
@@ -320,9 +303,8 @@ html, body { overflow-x: clip; }
 
 <nav class="tab-index" aria-label="Sections">
   <a href="#top">Home</a>
-  <a href="#see">See it</a>
+  <a href="#see">How it works</a>
   <a href="#features">Features</a>
-  <a href="#why">Why Cataloga</a>
   <a href="#about">About</a>
 </nav>
 
@@ -332,18 +314,16 @@ html, body { overflow-x: clip; }
       <a class="frame-logo" href="#top" aria-label="Cataloga home"><img src="assets/logos/logo-horizontal-paper.svg" alt="Cataloga, Archive Classifier" width="200" height="40"></a>
       <nav class="nav" aria-label="Main">
         <a href="#features">Features</a>
-        <a href="#why">Why Cataloga</a>
         <a href="#about">About</a>
-        <span class="dl"><span class="btn btn-light" aria-disabled="true">Available for Mac</span><span class="soon">Coming soon</span></span>
+        <span class="btn btn-light" aria-disabled="true">Coming soon</span>
       </nav>
       <details class="menu">
         <summary class="btn btn-light">Menu</summary>
         <nav class="menu-panel" aria-label="Menu">
-          <a href="#see">See it</a>
+          <a href="#see">How it works</a>
           <a href="#features">Features</a>
-          <a href="#why">Why Cataloga</a>
           <a href="#about">About</a>
-          <span class="dl"><span class="btn btn-light" aria-disabled="true">Available for Mac</span><span class="soon">Coming soon</span></span>
+          <span class="btn btn-light" aria-disabled="true">Coming soon</span>
         </nav>
       </details>
     </header>
@@ -456,19 +436,19 @@ html, body { overflow-x: clip; }
       <h1>An AI archivist for your personal drive.</h1>
       <p class="lede">Cataloga reads every file in a folder, names it, dates it, summarizes it and keeps it in order.</p>
       <div class="actions">
-        <span class="dl"><span class="btn btn-main" aria-disabled="true">Available for Mac</span><span class="soon">Coming soon</span></span>
-        <a class="btn btn-light" href="#see">See it work</a>
+        <span class="btn btn-main" aria-disabled="true">Coming soon</span>
+        <a class="btn btn-light" href="#see">How it works</a>
       </div>
     </div>
   </div>
 
   <section class="sheet see" id="see" aria-labelledby="see-title">
-    <a class="sheet-tab tab-left" href="#see">See it</a>
+    <a class="sheet-tab tab-left" href="#see">How it works</a>
     <div class="sheet-inner">
-      <div class="headline section-head"><h2 class="display grad" id="see-title" data-reveal>See it work.</h2></div>
+      <div class="headline section-head"><h2 class="display grad" id="see-title" data-reveal>How it works.</h2></div>
       <figure class="shot" data-reveal>
-        <video controls muted playsinline loop preload="metadata" poster="assets/video/poster.jpg" aria-label="Promo video of Cataloga: a folder of badly named files is read, named, dated, summarized and filed.">
-          <source src="assets/video/cataloga-promo-web.mp4" type="video/mp4">
+        <video controls muted playsinline loop preload="metadata" poster="assets/video/poster-demo.jpg" aria-label="Demo video of Cataloga: folders of badly named files are read and organized after you approve the plan, and the assistant answers questions about the project.">
+          <source src="assets/video/cataloga-demo-web.mp4" type="video/mp4">
         </video>
       </figure>
     </div>
@@ -485,7 +465,7 @@ html, body { overflow-x: clip; }
             <p>Text, photos and scanned PDFs, plus audio and video with an optional provider. For each file it finds the real date and the source, and writes a short summary.</p>
           </div>
           <figure>
-            <img src="assets/img/feature-reads.webp" alt="Cataloga in column view with a scanned newspaper clipping selected. The information panel shows the date 1961-08-03 read from the content, the source The Harbor Gazette, a summary and why this folder." width="1600" height="1000" loading="lazy">
+            <img src="assets/img/screens/law-scan.webp" alt="Cataloga reading a project of 18 files. A progress bar says Loading documents and names the file it is reading." width="1920" height="1200" loading="lazy">
           </figure>
         </article>
         <article class="feature" data-reveal>
@@ -494,8 +474,8 @@ html, body { overflow-x: clip; }
             <p>Icons, columns, a preview, search, and an assistant that answers questions about the project.</p>
           </div>
           <figure>
-            <img src="assets/img/feature-browse.webp" alt="Cataloga Home in icon view with folders, photo thumbnails and documents, and a photo selected with its information panel." width="1600" height="1000" loading="lazy">
-            <img src="assets/img/feature-assistant.webp" alt="The Cataloga assistant answering Summarize this project with the number of files, the dates and the top sources." width="1600" height="1000" loading="lazy">
+            <img src="assets/img/screens/law-home.webp" alt="Cataloga Home in icon view after the scan: four folders named by topic, with the number of files in each." width="1920" height="1200" loading="lazy">
+            <img src="assets/img/screens/law-chat.webp" alt="Ask Cataloga answering Find the lease documents. It lists two files as sources and filters the catalog to show them." width="1920" height="1200" loading="lazy">
           </figure>
         </article>
         <article class="feature" data-reveal>
@@ -504,50 +484,31 @@ html, body { overflow-x: clip; }
             <p>Nothing moves without your OK. You apply in parts and undo with one click.</p>
           </div>
           <figure>
-            <img src="assets/img/feature-plan.webp" alt="The Plan screen after applying a batch: Applied, 37 of 37 done, 0 failed, with the button Undo this batch." width="1600" height="1000" loading="lazy">
+            <img src="assets/img/screens/law-to-approve.webp" alt="The To Approve screen: each file shows its old name, its new name, the folder it will move to and the reason, with Skip and Approve all." width="1920" height="1200" loading="lazy">
           </figure>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="sheet why" id="why" aria-labelledby="why-title">
-    <a class="sheet-tab tab-right" href="#why">Why Cataloga</a>
-    <img class="mark-bg" src="assets/logos/logomark-midnight.svg" alt="" width="961" height="686" loading="lazy">
-    <div class="sheet-inner">
-      <div class="headline"><h2 class="display grad" id="why-title" data-reveal>Why not just Google Drive?</h2></div>
-      <p class="lede" data-reveal>Drive stores your files. Cataloga understands them.</p>
-      <table class="compare" data-reveal>
-        <thead><tr><th scope="col">Task</th><th scope="col">Google Drive</th><th scope="col">Cataloga</th></tr></thead>
-        <tbody>
-          <tr><td>File names</td><td data-label="Google Drive">Keeps scan_0047.pdf</td><td data-label="Cataloga">Gives it a readable name</td></tr>
-          <tr><td>Date</td><td data-label="Google Drive">The date of the upload or the last change</td><td data-label="Cataloga">The real date, read from the file when it has one</td></tr>
-          <tr><td>What is inside</td><td data-label="Google Drive">Open the file to find out</td><td data-label="Cataloga">A short summary of each file</td></tr>
-          <tr><td>Folders</td><td data-label="Google Drive">You sort everything by hand</td><td data-label="Cataloga">Folders that follow your method, after you approve the plan</td></tr>
-          <tr><td>Where files live</td><td data-label="Google Drive">In the cloud</td><td data-label="Cataloga">On your own disk</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
 
-  <section class="sheet about" id="about" aria-labelledby="about-title">
-    <a class="sheet-tab tab-left" href="#about">About</a>
+  <section class="sheet about" id="about" aria-label="About">
+    <a class="sheet-tab tab-right" href="#about">About</a>
     <img class="mark-bg" src="assets/logos/logomark-midnight.svg" alt="" width="961" height="686" loading="lazy">
     <div class="sheet-inner about-grid">
-      <div class="about-text">
-        <div class="headline"><h2 class="display grad" id="about-title" data-reveal>Built from a real<br>research archive</h2></div>
-        <p data-reveal>I work as a researcher on documentaries. For the documentary El Delfín, the research archive grew fast: press clippings, photos, interviews and documents, most of them with names like scan_0047.pdf or IMG_2231.jpg. Finding one article meant opening file after file. Cataloga is the tool I wanted on that project, and I built it as my Portfolio Project at Holberton School Puerto Rico.</p>
-      </div>
+      <figure class="qr" data-reveal>
+        <a href="https://linktr.ee/qr/6b2e1809-9bf7-4c33-ac19-d1260374530a" aria-label="Open my Linktree"><img src="assets/img/qr-linktree.svg" alt="QR code that opens my Linktree" width="240" height="240" loading="lazy"></a>
+        <figcaption>Scan for my resume, GitHub and LinkedIn.</figcaption>
+      </figure>
       <aside class="person" aria-label="Author" data-reveal>
         <p class="made">Made by</p>
         <h3>Luis Felipe González López</h3>
         <p>Developer, designer and researcher, San Juan, Puerto Rico</p>
         <ul class="links">
-          <!-- Resume: put the PDF at assets/resume.pdf, change this href to assets/resume.pdf and remove the note below. -->
-          <li><a href="#resume"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Resume</a></li>
+          <li><a href="https://drive.google.com/file/d/16-maPe4ztoVxUvOYfsbyqladiBtiJ_Vv/view?usp=sharing"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Resume</a></li>
           <li><a href="https://www.linkedin.com/in/luisgonz"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.1zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.4H3.6V9h3.5v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.5c0 1 .8 1.8 1.8 1.8h20.4c1 0 1.8-.8 1.8-1.8V1.7C24 .8 23.2 0 22.2 0z"/></svg>LinkedIn</a></li>
+          <li><a href="https://github.com/luisfe05"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub</a></li>
         </ul>
-        <p id="resume" role="status">Resume coming soon</p>
       </aside>
     </div>
   </section>
@@ -769,7 +730,7 @@ html, body { overflow-x: clip; }
       .from(q(".p-tag"), { opacity: 0, x: -12, stagger: 0.035, duration: 0.3, ease: "power2.out" }, 4.7);
   })();
 
-  /* The promo plays only while it is on screen, and not with reduced motion. */
+  /* The demo plays only while it is on screen, and not with reduced motion. */
   var promo = document.querySelector(".see video");
   if (promo && !reduce.matches && "IntersectionObserver" in window) {
     new IntersectionObserver(function (entries) {
